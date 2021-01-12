@@ -10,6 +10,17 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    // Retrofit
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    //
+
     defaultConfig {
         applicationId "com.example.currency_tracker"
         minSdkVersion 21
@@ -19,6 +30,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        // Room
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += [
@@ -46,6 +58,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // MVVM
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     // Added nav
     def nav_version = "2.3.2"
@@ -74,5 +90,14 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:$work_version"
     // optional - Test helpers
     androidTestImplementation "androidx.work:work-testing:$work_version"
+
+    // Retrofit
+    def version_retrofit = "2.9.0"
+    def version_moshi = "1.11.0"
+        // JSON converter Moshi for Retrofit
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
 }

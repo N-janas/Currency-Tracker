@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Currency_Tracker</string>
     <string name="currency_api_url">https://api.exchangeratesapi.io/</string>
+    <string name="tvWelcomeTitle_string">Welcome Fragment</string>
+    <string name="btnWelcomeToConversion_string">Convert</string>
+    <string name="btnConvert_string">Convert Currency</string>
 </resources>

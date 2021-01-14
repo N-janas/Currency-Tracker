@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.currency_tracker.R
 import com.example.currency_tracker.ViewModel.ConverterViewModel
@@ -30,9 +31,21 @@ class ConverterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Observer for changes in result
+        val resultObserver = Observer<String>{
+            result -> tvForeignResult.text = result
+        }
+
+        // Connect result's observer
+        converterViewModel.conversionResult.observe(viewLifecycleOwner, resultObserver)
+
         // Convert currencies
         btnConvert.setOnClickListener {
-            converterViewModel.getLatestEuro()
+            converterViewModel.getLatestRatesBetweenTwo(
+                sprSymbolCurrency.selectedItem.toString(),
+                sprBaseCurrency.selectedItem.toString(),
+                etBaseAmount.text.toString().toDouble()
+            ).toString()
         }
     }
 

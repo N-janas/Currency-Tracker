@@ -17,10 +17,90 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnConvert_string"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/sprBaseCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:entries="@array/available_currencies"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@+id/btnConvert"
+            app:layout_constraintEnd_toStartOf="@+id/tvSymbolCurrency"
+            app:layout_constraintStart_toEndOf="@+id/tvBaseCurrency"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvBaseCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@string/tvBaseCurrency_string"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sprBaseCurrency"
+            app:layout_constraintEnd_toStartOf="@+id/sprBaseCurrency"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sprBaseCurrency" />
+
+        <TextView
+            android:id="@+id/tvSymbolCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@string/tvSymbolCurrency_string"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sprSymbolCurrency"
+            app:layout_constraintEnd_toStartOf="@+id/sprSymbolCurrency"
+            app:layout_constraintStart_toEndOf="@+id/sprBaseCurrency"
+            app:layout_constraintTop_toTopOf="@+id/sprSymbolCurrency" />
+
+        <Spinner
+            android:id="@+id/sprSymbolCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:entries="@array/available_currencies"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@+id/btnConvert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSymbolCurrency"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etBaseAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:padding="10sp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConvert"
+            app:layout_constraintEnd_toStartOf="@+id/tvForeignResult"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sprBaseCurrency" />
+
+        <TextView
+            android:id="@+id/tvForeignResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:padding="10sp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConvert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etBaseAmount"
+            app:layout_constraintTop_toBottomOf="@+id/sprSymbolCurrency" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

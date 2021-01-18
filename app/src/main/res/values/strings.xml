@@ -42,40 +42,45 @@
         <item>THB </item>
         <item>ZAR </item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_1">1</string>
+    <string name="todo">TODO</string>
+    <string name="todo">TODO</string>
 
-<!--    <string-array name="available_currencies">-->
-<!--        <item>EUR (Euro)</item>-->
-<!--        <item>USD (US dollar)</item>-->
-<!--        <item>JPY (Japanese yen)</item>-->
-<!--        <item>BGN (Bulgarian lev)</item>-->
-<!--        <item>CZK (Czech koruna)</item>-->
-<!--        <item>DKK (Danish krone)</item>-->
-<!--        <item>GBP (Pound sterling)</item>-->
-<!--        <item>HUF (Hungarian forint)</item>-->
-<!--        <item>PLN (Polish zloty)</item>-->
-<!--        <item>RON (Romanian leu)</item>-->
-<!--        <item>SEK (Swedish krona)</item>-->
-<!--        <item>CHF (Swiss franc)</item>-->
-<!--        <item>ISK (Icelandic krona)</item>-->
-<!--        <item>NOK (Norwegian krone)</item>-->
-<!--        <item>HRK (Croatian kuna)</item>-->
-<!--        <item>RUB (Russian rouble)</item>-->
-<!--        <item>TRY (Turkish lira)</item>-->
-<!--        <item>AUD (Australian dollar)</item>-->
-<!--        <item>BRL (Brazilian real)</item>-->
-<!--        <item>CAD (Canadian dollar)</item>-->
-<!--        <item>CNY (Chinese yuan renminbi)</item>-->
-<!--        <item>HKD (Hong Kong dollar)</item>-->
-<!--        <item>IDR (Indonesian rupiah)</item>-->
-<!--        <item>ILS (Israeli shekel)</item>-->
-<!--        <item>INR (Indian rupee)</item>-->
-<!--        <item>KRW (South Korean won)</item>-->
-<!--        <item>MXN (Mexican peso)</item>-->
-<!--        <item>MYR (Malaysian ringgit)</item>-->
-<!--        <item>NZD (New Zealand dollar)</item>-->
-<!--        <item>PHP (Philippine peso)</item>-->
-<!--        <item>SGD (Singapore dollar)</item>-->
-<!--        <item>THB (Thai baht)</item>-->
-<!--        <item>ZAR (South African rand)</item>-->
-<!--    </string-array>-->
+    <!--    <string-array name="available_currencies">-->
+    <!--        <item>EUR (Euro)</item>-->
+    <!--        <item>USD (US dollar)</item>-->
+    <!--        <item>JPY (Japanese yen)</item>-->
+    <!--        <item>BGN (Bulgarian lev)</item>-->
+    <!--        <item>CZK (Czech koruna)</item>-->
+    <!--        <item>DKK (Danish krone)</item>-->
+    <!--        <item>GBP (Pound sterling)</item>-->
+    <!--        <item>HUF (Hungarian forint)</item>-->
+    <!--        <item>PLN (Polish zloty)</item>-->
+    <!--        <item>RON (Romanian leu)</item>-->
+    <!--        <item>SEK (Swedish krona)</item>-->
+    <!--        <item>CHF (Swiss franc)</item>-->
+    <!--        <item>ISK (Icelandic krona)</item>-->
+    <!--        <item>NOK (Norwegian krone)</item>-->
+    <!--        <item>HRK (Croatian kuna)</item>-->
+    <!--        <item>RUB (Russian rouble)</item>-->
+    <!--        <item>TRY (Turkish lira)</item>-->
+    <!--        <item>AUD (Australian dollar)</item>-->
+    <!--        <item>BRL (Brazilian real)</item>-->
+    <!--        <item>CAD (Canadian dollar)</item>-->
+    <!--        <item>CNY (Chinese yuan renminbi)</item>-->
+    <!--        <item>HKD (Hong Kong dollar)</item>-->
+    <!--        <item>IDR (Indonesian rupiah)</item>-->
+    <!--        <item>ILS (Israeli shekel)</item>-->
+    <!--        <item>INR (Indian rupee)</item>-->
+    <!--        <item>KRW (South Korean won)</item>-->
+    <!--        <item>MXN (Mexican peso)</item>-->
+    <!--        <item>MYR (Malaysian ringgit)</item>-->
+    <!--        <item>NZD (New Zealand dollar)</item>-->
+    <!--        <item>PHP (Philippine peso)</item>-->
+    <!--        <item>SGD (Singapore dollar)</item>-->
+    <!--        <item>THB (Thai baht)</item>-->
+    <!--        <item>ZAR (South African rand)</item>-->
+    <!--    </string-array>-->
 </resources>

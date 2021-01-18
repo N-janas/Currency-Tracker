@@ -23,7 +23,6 @@ class ConverterViewModel(application: Application): AndroidViewModel(application
         viewModelScope.launch {
             Log.d("logs", CurrencyRepository.getLatestEuro().toString())
         }
-
     }
 
     fun getLatestRatesBetweenTwo(symbol: String, base: String, baseAmount: Double){

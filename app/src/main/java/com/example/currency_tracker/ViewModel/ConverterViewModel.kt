@@ -19,19 +19,13 @@ class ConverterViewModel(application: Application): AndroidViewModel(application
         get() = _conversionResult
 
 
-    fun getLatestEuro(){
-        viewModelScope.launch {
-            Log.d("logs", CurrencyRepository.getLatestEuro().toString())
-        }
-
-    }
 
     fun getLatestRatesBetweenTwo(symbol: String, base: String, baseAmount: Double){
         viewModelScope.launch {
-            var response = CurrencyRepository.getLatestRateBetweenTwo(symbol, base)
+//            var response = CurrencyRepository.getLatestRateBetweenTwo(symbol, base)
             // Get rate of symbol, do the calculations and put it in textView
 
-            _conversionResult.value = "%.2f".format(baseAmount * (response.rates[symbol] ?: 0.0))
+//            _conversionResult.value = "%.2f".format(baseAmount * (response.rates[symbol] ?: 0.0))
         }
     }
 

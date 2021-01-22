@@ -15,9 +15,9 @@ class WelcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Go to converter view
-//        btnWelcomeToConversion.setOnClickListener {
-//            view -> view.findNavController().navigate(R.id.action_welcomeFragment_to_converterFragment)
-//        }
+        btnWelcomeToConversion.setOnClickListener {
+            view -> view.findNavController().navigate(R.id.action_welcomeFragment_to_new_converterFragment)
+        }
     }
 
     override fun onCreateView(

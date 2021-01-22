@@ -30,20 +30,20 @@ class MainActivity : AppCompatActivity() {
 //                .build()
 
 
-
-        btnWelcomeToConversion.setOnClickListener {
-
-
-            val checkRatesRequest: WorkRequest =
-                OneTimeWorkRequestBuilder<MyWorker>()
-                    .setConstraints(constraints)
-                    .setBackoffCriteria(
-                        BackoffPolicy.LINEAR,
-                        10,
-                        TimeUnit.SECONDS)
-                    .build()
-            // Enqueue scheduled work
-            WorkManager.getInstance(applicationContext).enqueue(checkRatesRequest)
-        }
+        //Zakomentowałem to bo mi wgle nie ruszało P.J
+//        btnWelcomeToConversion.setOnClickListener {
+//
+//
+//            val checkRatesRequest: WorkRequest =
+//                OneTimeWorkRequestBuilder<MyWorker>()
+//                    .setConstraints(constraints)
+//                    .setBackoffCriteria(
+//                        BackoffPolicy.LINEAR,
+//                        10,
+//                        TimeUnit.SECONDS)
+//                    .build()
+//            // Enqueue scheduled work
+//            WorkManager.getInstance(applicationContext).enqueue(checkRatesRequest)
+//        }
     }
 }

@@ -11,21 +11,22 @@
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
-            android:id="@+id/action_welcomeFragment_to_converterFragment"
-            app:destination="@id/converterFragment" />
+            android:id="@+id/action_welcomeFragment_to_new_converterFragment"
+            app:destination="@id/new_converterFragment" />
     </fragment>
     <fragment
-        android:id="@+id/converterFragment"
+        android:id="@+id/new_converterFragment"
         android:name="com.example.currency_tracker.View.ConverterFragment"
         android:label="fragment_converter"
-        tools:layout="@layout/fragment_converter" >
+        tools:layout="@layout/new_fragment_converter" >
+
         <action
-            android:id="@+id/action_converterFragment_to_plotFragment"
+            android:id="@+id/action_new_converterFragment_to_plotFragment"
             app:destination="@id/plotFragment" />
     </fragment>
     <fragment
         android:id="@+id/plotFragment"
-        android:name="com.example.currency_tracker.PlotFragment"
+        android:name="com.example.currency_tracker.View.PlotFragment"
         android:label="fragment_plot"
         tools:layout="@layout/fragment_plot" />
 </navigation>

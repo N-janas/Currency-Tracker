@@ -1,6 +1,8 @@
 package com.example.currency_tracker.Model.API
 
 import com.example.currency_tracker.Model.Entities.Currency
+import com.example.currency_tracker.Model.Entities.ResponseEntity
+import com.example.currency_tracker.Model.Entities.ResponseLatestEntity
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -10,13 +12,6 @@ import java.util.*
 interface CurrencyAPI {
 
     /**
-     * @return Euro with corresponding (to 33 currencies) rates,
-     * rates are collected from current date.
-     */
-    @GET("latest")
-    fun getLatestEuro(): Call<Currency>
-
-    /**
      * @return latest rate between
      * [base] and [symbol].
      */
@@ -24,17 +19,18 @@ interface CurrencyAPI {
     fun getLatestRateBetweenTwo(
         @Query("symbols") symbol: String,
         @Query("base") base: String
-    ): Call<Currency>
+    ): Call<ResponseLatestEntity>
 
     /**
-     * @return list of rates between [base] and [symbol]
+     * @return [ResponseEntity] object that contains
+     * rates between [base] and [symbols]
      * in specified interval of time.
      */
     @GET("history")
-    fun getHistoricalRatesBetweenTwo(
+    fun getHistoricalRatesForCurrency(
         @Query("start_at") startAt: String,
         @Query("end_at") endAt: String,
-        @Query("symbols") symbol: String,
+        @Query("symbols") symbols: String,
         @Query("base") base: String
-    ): Call<List<Currency>>
+    ): Call<ResponseEntity>
 }

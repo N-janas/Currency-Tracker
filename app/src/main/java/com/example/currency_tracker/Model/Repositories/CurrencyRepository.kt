@@ -28,7 +28,7 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
     }
 
     /**
-     * Function is created for gathering **unsorted** base Currency with every rate within
+     * Function is created for gathering **sorted** base Currency with every rate within
      * interval of specified time ([startAt], [endAt]).
      * @return list of one type of Currency specified by [base], with every other corresponding
      * rate. Data is gathered from specified interval of time.
@@ -36,5 +36,21 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
     suspend fun getListOfCurrency(base: String, startAt: Date, endAt: Date): List<Currency>{
         // If startAt and endAt will be strings, then here should be the conversion
         return currencyDao.getListOfCurrency(base, startAt, endAt)
+    }
+
+    /**
+     * Function checks is any record is already in table in database.
+     * @return true if table is empty, otherwise false.
+     */
+    fun tableIsEmpty(): Boolean{
+        return currencyDao.getOneElement().isEmpty()
+    }
+
+    /**
+     * Function created for checking latest record date.
+     * @return latest date of record in table in Date object.
+     */
+    fun getLatestDate(): Date{
+        return currencyDao.getLatestDate()
     }
 }

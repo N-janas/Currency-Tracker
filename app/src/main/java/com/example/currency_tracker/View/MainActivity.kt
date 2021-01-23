@@ -15,8 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         // Create constraints that will make internet connection required
         val constraints = Constraints.Builder()
-//            .setRequiredNetworkType(NetworkType.CONNECTED)
-//            .setRequiresCharging(true)
+            .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
         // Setting up periodic work schedule
@@ -32,15 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         //Zakomentowałem to bo mi wgle nie ruszało P.J
 //        btnWelcomeToConversion.setOnClickListener {
-//
-//
 //            val checkRatesRequest: WorkRequest =
 //                OneTimeWorkRequestBuilder<MyWorker>()
 //                    .setConstraints(constraints)
-//                    .setBackoffCriteria(
-//                        BackoffPolicy.LINEAR,
-//                        10,
-//                        TimeUnit.SECONDS)
 //                    .build()
 //            // Enqueue scheduled work
 //            WorkManager.getInstance(applicationContext).enqueue(checkRatesRequest)

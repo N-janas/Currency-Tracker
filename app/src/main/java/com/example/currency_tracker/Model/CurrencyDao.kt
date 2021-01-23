@@ -21,11 +21,18 @@ interface CurrencyDao {
     @JvmSuppressWildcards
     suspend fun insertAllCurrencies(currencies: List<Currency>)
 
-    @Query("SELECT * FROM currency_table")
-    fun allCurrencies(): List<Currency> // TODO(Tutaj Live Data !!!)
+    @Query("SELECT * FROM currency_table ORDER BY date")
+    fun allCurrencies(): List<Currency> // TODO(Tutaj chyba Live Data !!!)
 
+    // Get sorted rates for base
+    @Query("SELECT * FROM currency_table WHERE base = :base AND date BETWEEN :startAt AND :endAt ORDER BY date")
+    fun getListOfCurrency(base: String, startAt: Date, endAt: Date): List<Currency> // TODO(Tutaj  chyba Live Data !!!)
 
-    @Query("SELECT * FROM currency_table WHERE base = :base AND date BETWEEN :startAt AND :endAt")
-    fun getListOfCurrency(base: String, startAt: Date, endAt: Date): List<Currency> // TODO(Tutaj Live Data !!!)
+    // Check if table is empty
+    @Query("SELECT * FROM currency_table LIMIT 1")
+    fun getOneElement(): List<Currency>
 
+    // Get latest date from record within table
+    @Query("SELECT MAX(date) FROM currency_table")
+    fun getLatestDate(): Date
 }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.work.*
 import com.example.currency_tracker.Model.MyWorker
 import com.example.currency_tracker.R
-import kotlinx.android.synthetic.main.fragment_welcome.*
 import java.util.concurrent.TimeUnit
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -15,7 +14,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.Constraints
-import com.example.currency_tracker.R
+import com.example.currency_tracker.View.MainActivityPackage.MySideMenu
+import com.example.currency_tracker.View.MainActivityPackage.SideMenuLogic
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MySideMenu {

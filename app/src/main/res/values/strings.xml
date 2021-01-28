@@ -67,6 +67,14 @@
     <string name="favourite">Favourite</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="bse">BSE</string>
+    <string name="sbl">SBL</string>
+    <string name="made_by">Made by:</string>
+    <string name="currencyconverter">CurrencyConverter</string>
+    <string name="pawe_janusz">Paweł Janusz</string>
+    <string name="animations_by_nariman_zahmatkesh_lottiefiles">Animations by: nariman_zahmatkesh @LottieFiles</string>
+    <string name="norbert_janas">Norbert Janas</string>
+    <string name="pawe_pi_at">Paweł Piłat</string>
 
     <!--    <string-array name="available_currencies">-->
     <!--        <item>EUR (Euro)</item>-->

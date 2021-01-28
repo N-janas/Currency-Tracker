@@ -1,4 +1,4 @@
-package com.example.currency_tracker.View
+package com.example.currency_tracker.View.MainActivity
 
 import androidx.navigation.NavController
 

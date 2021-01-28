@@ -1,4 +1,4 @@
-package com.example.currency_tracker.View
+package com.example.currency_tracker.View.MainActivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.work.Constraints
 import com.example.currency_tracker.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,16 +36,16 @@ class MainActivity : AppCompatActivity(), MySideMenu {
         }
 
         // Create constraints that will make internet connection required
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
+//        val constraints = Constraints.Builder()
+//            .setRequiredNetworkType(NetworkType.CONNECTED)
+//            .build()
 
         // Setting up periodic work schedule
 //        val checkRatesRequest: WorkRequest =
 //            PeriodicWorkRequestBuilder<MyWorker>(5, TimeUnit.MINUTES)
 //                .setConstraints(constraints)
 //                .setBackoffCriteria(
-//                    BackoffPolicy.LINEAR,
+//                    BackoffPolicy.LINEAR,5
 //                    10,
 //                    TimeUnit.SECONDS)
 //                .build()

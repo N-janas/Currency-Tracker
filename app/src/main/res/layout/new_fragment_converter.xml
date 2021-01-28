@@ -94,17 +94,20 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/new_converter_convertButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/arrows"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_speed="1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:clickable="true"
         android:contentDescription="@string/convertbutton"
         app:layout_constraintBottom_toTopOf="@+id/second_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/first_guidline"
-        app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
         android:focusable="true" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView

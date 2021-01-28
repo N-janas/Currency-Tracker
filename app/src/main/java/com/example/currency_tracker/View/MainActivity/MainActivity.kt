@@ -1,7 +1,12 @@
-package com.example.currency_tracker.View.MainActivity
+package com.example.currency_tracker.View
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.work.*
+import com.example.currency_tracker.Model.MyWorker
+import com.example.currency_tracker.R
+import kotlinx.android.synthetic.main.fragment_welcome.*
+import java.util.concurrent.TimeUnit
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -9,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.Constraints
 import com.example.currency_tracker.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -36,30 +42,21 @@ class MainActivity : AppCompatActivity(), MySideMenu {
         }
 
         // Create constraints that will make internet connection required
-//        val constraints = Constraints.Builder()
-//            .setRequiredNetworkType(NetworkType.CONNECTED)
-//            .build()
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
 
         // Setting up periodic work schedule
-//        val checkRatesRequest: WorkRequest =
-//            PeriodicWorkRequestBuilder<MyWorker>(5, TimeUnit.MINUTES)
-//                .setConstraints(constraints)
-//                .setBackoffCriteria(
-//                    BackoffPolicy.LINEAR,5
-//                    10,
-//                    TimeUnit.SECONDS)
-//                .build()
+        val checkRatesRequest: PeriodicWorkRequest =
+            PeriodicWorkRequestBuilder<MyWorker>(24, TimeUnit.HOURS)
+                .setConstraints(constraints)
+                .build()
 
-
-        //Zakomentowałem to bo mi wgle nie ruszało P.J
-//        btnWelcomeToConversion.setOnClickListener {
-//            val checkRatesRequest: WorkRequest =
-//                OneTimeWorkRequestBuilder<MyWorker>()
-//                    .setConstraints(constraints)
-//                    .build()
-//            // Enqueue scheduled work
-//            WorkManager.getInstance(applicationContext).enqueue(checkRatesRequest)
-//        }
+        WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
+            "apiCallRequest",
+            ExistingPeriodicWorkPolicy.KEEP,
+            checkRatesRequest
+        )
     }
 
     private fun initializeLogicForSideMenu(mySideMenu: MySideMenu) {

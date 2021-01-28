@@ -7,40 +7,54 @@
     <string name="tvBaseCurrency_string">Base:</string>
     <string name="tvSymbolCurrency_string">Foreign:</string>
 
+    <string-array name="supported_currencies">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>JPY</item>
+        <item>BGN</item>
+        <item>CZK</item>
+        <item>DKK</item>
+        <item>GBP</item>
+        <item>HUF</item>
+        <item>PLN</item>
+        <item>RON</item><!--10-->
+    </string-array>
+
+
     <string-array name="available_currencies">
         <item>EUR</item>
-        <item>USD </item>
-        <item>JPY </item>
-        <item>BGN </item>
-        <item>CZK </item>
-        <item>DKK </item>
-        <item>GBP </item>
-        <item>HUF </item>
-        <item>PLN </item><!--10-->
-        <item>RON </item>
-        <item>SEK </item>
-        <item>CHF </item>
-        <item>ISK </item>
-        <item>NOK </item>
-        <item>HRK </item>
-        <item>RUB </item>
-        <item>TRY </item>
-        <item>AUD </item>
-        <item>BRL </item>
-        <item>CAD </item>
-        <item>CNY </item>
-        <item>HKD </item>
-        <item>IDR </item>
-        <item>ILS </item>
-        <item>INR </item>
-        <item>KRW </item>
-        <item>MXN </item>
-        <item>MYR </item>
-        <item>NZD </item>
-        <item>PHP </item>
-        <item>SGD </item>
-        <item>THB </item>
-        <item>ZAR </item>
+        <item>USD</item>
+        <item>JPY</item>
+        <item>BGN</item>
+        <item>CZK</item>
+        <item>DKK</item>
+        <item>GBP</item>
+        <item>HUF</item>
+        <item>PLN</item>
+        <item>RON</item><!--10-->
+        <item>SEK</item>
+        <item>CHF</item>
+        <item>ISK</item>
+        <item>NOK</item>
+        <item>HRK</item>
+        <item>RUB</item>
+        <item>TRY</item>
+        <item>AUD</item>
+        <item>BRL</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>HKD</item>
+        <item>IDR</item>
+        <item>ILS</item>
+        <item>INR</item>
+        <item>KRW</item>
+        <item>MXN</item>
+        <item>MYR</item>
+        <item>NZD</item>
+        <item>PHP</item>
+        <item>SGD</item>
+        <item>THB</item>
+        <item>ZAR</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

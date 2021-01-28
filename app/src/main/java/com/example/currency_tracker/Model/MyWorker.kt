@@ -9,6 +9,7 @@ import androidx.work.WorkerParameters
 import com.example.currency_tracker.Model.Entities.ResponseEntity
 import com.example.currency_tracker.Model.Repositories.CurrencyRepository
 import com.example.currency_tracker.Model.Repositories.ResponsesRepository
+import com.example.currency_tracker.R
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -83,8 +84,10 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
         }
 
         // Get date of last time when date was gathered (Database last item Date)
-        val supportedCurrencies = listOf("EUR", "PLN", "USD") //, "AUD", "TRY"
+        val supportedCurrencies = applicationContext.resources
+            .getStringArray(R.array.supported_currencies)
 
+        Log.d("logs", "Supported currencies : " + supportedCurrencies.joinToString(","))
         // If not trying to do same work again today
         if (!againToday){
             // Collect rates for every supported currency
@@ -124,7 +127,7 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
 //            formatTMP.parse("2021-01-17")!!,
 //            formatTMP.parse("2021-01-22")!!
 //        ).toString())
-//        Log.d("Result", currencyRepository.selectAll().toString())
+        Log.d("Result", currencyRepository.selectAll().toString())
         // DEBUG -----------
 
         againToday = false;

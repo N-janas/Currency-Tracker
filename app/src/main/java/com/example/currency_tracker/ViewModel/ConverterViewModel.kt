@@ -7,7 +7,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.currency_tracker.Model.Repositories.CurrencyRepository
+import com.example.currency_tracker.Model.Repositories.ResponsesRepository
 import kotlinx.coroutines.launch
+import okhttp3.Response
 import java.util.*
 import kotlin.math.round
 
@@ -22,10 +24,8 @@ class ConverterViewModel(application: Application): AndroidViewModel(application
 
     fun getLatestRatesBetweenTwo(symbol: String, base: String, baseAmount: Double){
         viewModelScope.launch {
-//            var response = CurrencyRepository.getLatestRateBetweenTwo(symbol, base)
-            // Get rate of symbol, do the calculations and put it in textView
-
-//            _conversionResult.value = "%.2f".format(baseAmount * (response.rates[symbol] ?: 0.0))
+            val rate = ResponsesRepository.getLatestRateBetweenTwo(symbol, base)
+            _conversionResult.value = "%.2f".format(baseAmount * rate)
         }
     }
 

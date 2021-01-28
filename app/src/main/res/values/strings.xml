@@ -8,7 +8,7 @@
     <string name="tvSymbolCurrency_string">Foreign:</string>
 
     <string-array name="available_currencies">
-        <item>EUR </item>
+        <item>EUR</item>
         <item>USD </item>
         <item>JPY </item>
         <item>BGN </item>
@@ -16,7 +16,7 @@
         <item>DKK </item>
         <item>GBP </item>
         <item>HUF </item>
-        <item>PLN </item>
+        <item>PLN </item><!--10-->
         <item>RON </item>
         <item>SEK </item>
         <item>CHF </item>
@@ -51,6 +51,8 @@
     <string name="base">Base</string>
     <string name="symbol">symbol</string>
     <string name="favourite">Favourite</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     <!--    <string-array name="available_currencies">-->
     <!--        <item>EUR (Euro)</item>-->

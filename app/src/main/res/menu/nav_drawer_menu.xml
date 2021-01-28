@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/itemEUR"
+            android:icon="@drawable/ic_euro"
+            android:title="EUR" />
+
+        <item
+            android:id="@+id/itemUSD"
+            android:icon="@drawable/ic_usa"
+            android:title="USD" />
+
+        <item
+            android:id="@+id/itemPLN"
+            android:icon="@drawable/ic_poland"
+            android:title="PLN" />
+    </group>
+
+</menu>

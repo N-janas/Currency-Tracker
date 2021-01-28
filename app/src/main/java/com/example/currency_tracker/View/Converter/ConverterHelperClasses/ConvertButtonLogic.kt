@@ -61,7 +61,6 @@ class ConvertButtonLogic(private val view: View, private val converterViewModel:
 
     override fun changeButtonIcon() {
         if (isConverted) {
-            convertButton.progress = 0f
             convertButton.pauseAnimation()
             convertButton.playAnimation()
         } else {

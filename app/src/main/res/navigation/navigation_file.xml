@@ -3,30 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_file"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/newWelcomeFragment">
 
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.currency_tracker.View.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
-        <action
-            android:id="@+id/action_welcomeFragment_to_new_converterFragment"
-            app:destination="@id/new_converterFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_welcome" />
     <fragment
         android:id="@+id/new_converterFragment"
-        android:name="com.example.currency_tracker.View.ConverterFragment"
+        android:name="com.example.currency_tracker.View.Converter.ConverterFragment"
         android:label="fragment_converter"
         tools:layout="@layout/new_fragment_converter" >
 
         <action
             android:id="@+id/action_new_converterFragment_to_plotFragment"
             app:destination="@id/plotFragment" />
+        <argument
+            android:name="base"
+            app:argType="string" />
+        <argument
+            android:name="symbol"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_new_converterFragment_to_newWelcomeFragment"
+            app:destination="@id/newWelcomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/plotFragment"
         android:name="com.example.currency_tracker.View.PlotFragment"
         android:label="fragment_plot"
         tools:layout="@layout/fragment_plot" />
+    <fragment
+        android:id="@+id/newWelcomeFragment"
+        android:name="com.example.currency_tracker.View.NewWelcomeFragment"
+        android:label="new_fragment_welcome"
+        tools:layout="@layout/new_fragment_welcome" >
+        <action
+            android:id="@+id/action_newWelcomeFragment_to_new_converterFragment"
+            app:destination="@id/new_converterFragment" />
+    </fragment>
 </navigation>

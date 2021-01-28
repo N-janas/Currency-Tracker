@@ -10,7 +10,7 @@ import java.util.*
 
 @Database(
     entities = [Currency::class],
-    version = 3,
+    version = 1,
     exportSchema = true
 )
 @TypeConverters(Converters::class)

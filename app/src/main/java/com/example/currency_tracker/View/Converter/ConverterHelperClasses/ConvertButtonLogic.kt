@@ -1,8 +1,12 @@
 package com.example.currency_tracker.View.Converter.ConverterHelperClasses
 
+import android.content.res.Resources
+import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.EditText
 import android.widget.Spinner
+import com.airbnb.lottie.ImageAssetDelegate
+import com.airbnb.lottie.LottieAnimationView
 import com.example.currency_tracker.R
 import com.example.currency_tracker.ViewModel.ConverterViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -14,7 +18,7 @@ class ConvertButtonLogic(private val view: View, private val converterViewModel:
     private val symbolEditText: EditText = view.new_converter_symbolEditText
     private val symbolSpinner: Spinner = view.new_converter_symbolSpinner
     private val baseSpinner: Spinner = view.new_converter_baseSpinner
-    private val convertButton: FloatingActionButton = view.new_converter_convertButton
+    private val convertButton: LottieAnimationView = view.new_converter_convertButton
 
     // Convert or swap currencies
     fun convertOrSwapCurrencies() {
@@ -57,9 +61,15 @@ class ConvertButtonLogic(private val view: View, private val converterViewModel:
 
     override fun changeButtonIcon() {
         if (isConverted) {
-            convertButton.setImageResource(R.drawable.ic_baseline_repeat_24)
+            convertButton.progress = 0f
+            convertButton.pauseAnimation()
+            convertButton.playAnimation()
         } else {
-            convertButton.setImageResource(R.drawable.ic_baseline_arrow_forward_24)
+            val res = view.context.resources
+            val id = R.drawable.ic_baseline_arrow_forward_24
+            val bitmapImage = BitmapFactory.decodeResource(res,id)
+            convertButton.setImageAssetDelegate { bitmapImage }
+            //convertButton.setImageResource(R.drawable.ic_baseline_arrow_forward_24)
         }
     }
 

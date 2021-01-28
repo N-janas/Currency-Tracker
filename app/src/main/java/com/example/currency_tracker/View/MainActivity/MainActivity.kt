@@ -15,7 +15,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.Constraints
-
+import com.example.currency_tracker.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MySideMenu {
@@ -93,3 +93,4 @@ class MainActivity : AppCompatActivity(), MySideMenu {
         return navController
     }
 }
+

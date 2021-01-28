@@ -1,9 +1,9 @@
-package com.example.currency_tracker.View
+package com.example.currency_tracker.View.MainActivity
 
 import android.graphics.drawable.Drawable
 import android.view.MenuItem
-import androidx.navigation.NavController
 import com.example.currency_tracker.R
+import com.example.currency_tracker.View.NewWelcomeFragmentDirections
 
 class SideMenuLogic(private val mySideMenu: MySideMenu) {
     private var base: MenuItem? = null
@@ -38,11 +38,10 @@ class SideMenuLogic(private val mySideMenu: MySideMenu) {
 
     private fun setSecondArgumentAndNavigateToConverter(item: MenuItem) {
         symbol = item
-        val action = NewWelcomeFragmentDirections
-                .actionNewWelcomeFragmentToNewConverterFragment(
-                        base!!.title.toString(),
-                        symbol!!.title.toString()
-                )
+        val action = NewWelcomeFragmentDirections.actionNewWelcomeFragmentToNewConverterFragment(
+                base!!.title.toString(),
+                symbol!!.title.toString()
+        )
         mySideMenu.getNavController().navigate(action)
         mySideMenu.lockDrawer()
         restoreToDefault()

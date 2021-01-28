@@ -3,7 +3,7 @@ package com.example.currency_tracker.View.Converter.ConverterHelperClasses
 import android.text.Editable
 import android.text.TextWatcher
 
-class Watcher(private val ICurrencyConverter: ICurrencyConverter) : TextWatcher {
+class EditTextWatcher(private val ICurrencyConverter: ICurrencyConverter) : TextWatcher {
     override fun afterTextChanged(s: Editable?) {
     }
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

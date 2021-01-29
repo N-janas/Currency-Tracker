@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit
 const val UPDATE_CAP: Long = 7L
 const val WEEK_IN_MILLISECONDS: Long = 1000*60*60*24*7
 const val DAY_IN_MILLISECONDS: Long = 1000*60*60*24
+const val FIFTEEN_DAYS_IN_MILLISECONDS: Long = 1000*60*60*24*15
 
 class MyWorker(appContext: Context, workerParams: WorkerParameters):
         CoroutineWorker(appContext, workerParams){
@@ -41,16 +42,24 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
         // If database is empty, then fill it
         if (currencyRepository.tableIsEmpty()){
             // Get just today data
+            // Option 1: Last 30 days
             startAt =
-                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(
+                    // Subtract 2 times 15 = 30 (cuz overflow)
+                    Date(Date().time - FIFTEEN_DAYS_IN_MILLISECONDS
+                            - FIFTEEN_DAYS_IN_MILLISECONDS)
+                )
 
             endAt =
                 SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
-            // DEBUG ---------------- fill DB
-//            startAt = "2021-01-15"
-//            endAt = "2021-01-23"
-            // DEBUG ----------------
+            // Option 2: Current day only
+//            startAt =
+//                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+//
+//            endAt =
+//                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
         } else{
             // Otherwise try to update it
             val latestDate = currencyRepository.getLatestDate()
@@ -58,7 +67,7 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
             // If worker is trying to gather data again today then skip this request
             if (DateUtils.isToday(latestDate.time)){
                 againToday = true
-                Log.d("logs", "Ponowne wykonanie dzisiaj")
+                Log.d("workerLog", "You tried to update again today's data in DB")
             }
 
             // If difference in days between today and latest date was too high
@@ -87,7 +96,7 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
         val supportedCurrencies = applicationContext.resources
             .getStringArray(R.array.supported_currencies)
 
-        Log.d("logs", "Supported currencies : " + supportedCurrencies.joinToString(","))
+        Log.d("workerLog", "Supported currencies : " + supportedCurrencies.joinToString(","))
         // If not trying to do same work again today
         if (!againToday){
             // Collect rates for every supported currency
@@ -100,9 +109,9 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
                     base
                 )
 
-                // If there was no curency updates then do stop operations
+                // If there was no currency updates then do stop operations
                 if (response.rates.isEmpty()){
-                    Log.d("logs", "Nie było aktualizacji walut")
+                    Log.d("workerLog", "There was no update in API")
                     break
                 }
 
@@ -118,18 +127,7 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters):
                 // Start processing new base...
             }
         }
-
-        // DEBUG -----------
-//        val formatTMP = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-//
-//        Log.d("dateTest",currencyRepository.getListOfCurrency(
-//            "EUR",
-//            formatTMP.parse("2021-01-17")!!,
-//            formatTMP.parse("2021-01-22")!!
-//        ).toString())
-        Log.d("Result", currencyRepository.selectAll().toString())
-        // DEBUG -----------
-
+        Log.d("workerLog", "Done working")
         againToday = false;
         return Result.success()
     }

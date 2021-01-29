@@ -53,4 +53,21 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
     fun getLatestDate(): Date{
         return currencyDao.getLatestDate()
     }
+
+    // DEBUG functions
+    /**
+     * Debug function
+     * @return list of all unique dates present in database.
+     */
+    suspend fun debugGetDatesInDb(): List<Date>{
+        return currencyDao.debugGetDatesInDb()
+    }
+
+    /**
+     * Debug function (created cuz selectAll doesn't fit in Logcat)
+     * @return list of all currencies based on date.
+     */
+    suspend fun debugGetCurrenciesByDate(date: Date): List<Currency>{
+        return currencyDao.debugGetCurrenciesByDate(date)
+    }
 }

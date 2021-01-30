@@ -22,8 +22,8 @@ class ConverterOnClickListeners(view: View,
 
 
     fun initializeAllListeners(){
-        baseSpinner.onItemSelectedListener = SpinnerOnClickListener(convertButtonLogic)
-        symbolSpinner.onItemSelectedListener = SpinnerOnClickListener(convertButtonLogic)
+        baseSpinner.onItemSelectedListener = SpinnerOnClickListener(convertButtonLogic,favouriteButtonLogic)
+        symbolSpinner.onItemSelectedListener = SpinnerOnClickListener(convertButtonLogic,favouriteButtonLogic)
         baseEditText.addTextChangedListener(EditTextWatcher(convertButtonLogic))
 
 

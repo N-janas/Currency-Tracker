@@ -27,7 +27,7 @@ class MyDropDownMenu(view: View){
     private fun initializeAdapterForSpinner(): ArrayAdapter<CharSequence> {
         val adapter = ArrayAdapter.createFromResource(
                 context,
-                R.array.available_currencies,
+                R.array.supported_currencies,
                 android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

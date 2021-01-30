@@ -36,8 +36,14 @@ class MainActivity : AppCompatActivity(), MySideMenu {
             when(it.itemId){
                 R.id.itemEUR -> sideMenuLogic.selectItem(it)
                 R.id.itemUSD -> sideMenuLogic.selectItem(it)
+                R.id.itemJPY -> sideMenuLogic.selectItem(it)
+                R.id.itemBGN -> sideMenuLogic.selectItem(it)
+                R.id.itemCZK -> sideMenuLogic.selectItem(it)
+                R.id.itemDKK -> sideMenuLogic.selectItem(it)
+                R.id.itemGBP -> sideMenuLogic.selectItem(it)
+                R.id.itemHUF -> sideMenuLogic.selectItem(it)
                 R.id.itemPLN -> sideMenuLogic.selectItem(it)
-                //tu będą kolejne waluty
+                R.id.itemRON -> sideMenuLogic.selectItem(it)
             }
             true
         }

@@ -6,17 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.currency_tracker.Model.Entities.Currency
+import com.example.currency_tracker.Model.Entities.Favourites
 import java.util.*
 
 @Database(
-    entities = [Currency::class],
-    version = 4,
+    entities = [Currency::class, Favourites::class],
+    version = 5,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
 abstract class ProjectDatabase: RoomDatabase() {
 
     abstract fun currencyDao(): CurrencyDao
+    abstract fun favouritesDao(): FavouritesDao
 
     companion object{
         @Volatile

@@ -19,6 +19,19 @@
         <item>PLN</item>
         <item>RON</item><!--10-->
     </string-array>
+    
+    <integer-array name="countries_flags">
+        <item>@drawable/ic_euro</item>
+        <item>@drawable/ic_usa</item>
+        <item>@drawable/ic_japan</item>
+        <item>@drawable/ic_bulgaria</item>
+        <item>@drawable/ic_czech_republic</item>
+        <item>@drawable/ic_denmark</item>
+        <item>@drawable/ic_united_kingdom</item>
+        <item>@drawable/ic_hungary</item>
+        <item>@drawable/ic_poland</item>
+        <item>@drawable/ic_romania</item>
+    </integer-array>
 
 
     <string-array name="available_currencies">

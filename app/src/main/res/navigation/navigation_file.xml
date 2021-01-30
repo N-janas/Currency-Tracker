@@ -6,11 +6,6 @@
     app:startDestination="@id/newWelcomeFragment">
 
     <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.example.currency_tracker.View.WelcomeFragment"
-        android:label="Welcome"
-        tools:layout="@layout/fragment_welcome" />
-    <fragment
         android:id="@+id/new_converterFragment"
         android:name="com.example.currency_tracker.View.Converter.ConverterFragment"
         android:label="Convert"

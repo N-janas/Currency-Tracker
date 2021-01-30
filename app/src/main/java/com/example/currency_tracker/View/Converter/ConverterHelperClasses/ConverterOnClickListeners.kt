@@ -9,13 +9,15 @@ import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.new_fragment_converter.view.*
 
-class ConverterListeners(view: View, private val convertButtonLogic: ConvertButtonLogic){
+class ConverterOnClickListeners(view: View,
+                                private val convertButtonLogic: ConvertButtonLogic,
+                                private val favouriteButtonLogic: FavouriteButtonLogic){
     private var baseSpinner: Spinner = view.new_converter_baseSpinner
     private var symbolSpinner : Spinner = view.new_converter_symbolSpinner
     private var baseEditText: EditText = view.new_converter_baseEditText
     private var convertButton: LottieAnimationView = view.new_converter_convertButton
     private var chartButton: FloatingActionButton = view.new_converter_chartButton
-    private var favoriteButton: FloatingActionButton = view.new_converter_favoriteButton
+    private var favoriteButton: LottieAnimationView = view.new_converter_favoriteButton
     private var context: Context = view.context
 
 
@@ -34,20 +36,8 @@ class ConverterListeners(view: View, private val convertButtonLogic: ConvertButt
         }
 
         favoriteButton.setOnClickListener {
-            addToFavoriteCurrentSet()
+            favouriteButtonLogic.addToFavourites()
         }
-    }
-
-    private fun addToFavoriteCurrentSet() {
-        if (setNotExist()) {
-
-        } else {
-            Toast.makeText(context, "Już istnieje w ulubionych", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun setNotExist(): Boolean {
-        return false
     }
 
 }

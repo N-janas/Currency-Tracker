@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -55,8 +56,10 @@ class ConverterFragment : Fragment() {
         }
         converterOnClickListeners.initializeAllListeners()
 
+        favouriteButtonLogic.checkIsOnFavouriteList()
         view.new_converter_baseEditText.requestFocus()
     }
+
 
     private fun argumentsAreNotNull(): Boolean {
         if (args.base.isEmpty() || args.symbol.isEmpty()) {

@@ -17,8 +17,4 @@ class FavouritesRepository(private val favouritesDao: FavouritesDao) {
     fun selectAll(): LiveData<List<Favourites>> {
         return favouritesDao.allFavourites()
     }
-
-    suspend fun isRowExist(fav: Favourites):Boolean {
-        return favouritesDao.isRowExist(fav.currencyBaseId,fav.currencySymbolId)
-    }
 }

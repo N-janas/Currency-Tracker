@@ -13,10 +13,39 @@
             android:icon="@drawable/ic_usa"
             android:title="USD" />
 
+        <item android:id="@+id/itemJPY"
+            android:icon="@drawable/ic_japan"
+            android:title="JPY" />
+
+        <item android:id="@+id/itemBGN"
+            android:icon="@drawable/ic_bulgaria"
+            android:title="BGN" />
+
+        <item android:id="@+id/itemCZK"
+            android:icon="@drawable/ic_czech_republic"
+            android:title="CZK" />
+
+        <item android:id="@+id/itemDKK"
+            android:icon="@drawable/ic_denmark"
+            android:title="DKK" />
+
+        <item android:id="@+id/itemGBP"
+            android:icon="@drawable/ic_united_kingdom"
+            android:title="GBP" />
+
+        <item android:id="@+id/itemHUF"
+            android:icon="@drawable/ic_hungary"
+            android:title="HUF" />
+
         <item
             android:id="@+id/itemPLN"
             android:icon="@drawable/ic_poland"
             android:title="PLN" />
+
+        <item android:id="@+id/itemRON"
+            android:icon="@drawable/ic_romania"
+            android:title="RON" />
+
     </group>
 
 </menu>

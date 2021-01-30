@@ -22,7 +22,7 @@ interface CurrencyDao {
     suspend fun insertAllCurrencies(currencies: List<Currency>)
 
     @Query("SELECT * FROM currency_table ORDER BY date")
-    fun allCurrencies(): List<Currency> // TODO(Tutaj chyba Live Data !!!)
+    suspend fun allCurrencies(): List<Currency> // TODO(Tutaj chyba Live Data !!!)
 
     // Get sorted rates for base
     @Query("SELECT * FROM currency_table WHERE base = :base AND date BETWEEN :startAt AND :endAt ORDER BY date")
@@ -35,4 +35,12 @@ interface CurrencyDao {
     // Get latest date from record within table
     @Query("SELECT MAX(date) FROM currency_table")
     fun getLatestDate(): Date
+
+    // Debug -- Check dates in database
+    @Query("SELECT DISTINCT date from currency_table")
+    suspend fun debugGetDatesInDb(): List<Date>
+
+    // Debug -- Check records by date in database
+    @Query("SELECT * FROM currency_table WHERE date = :date")
+    suspend fun debugGetCurrenciesByDate(date: Date): List<Currency>
 }

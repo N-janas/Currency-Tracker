@@ -1,16 +1,13 @@
 package com.example.currency_tracker.Model
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.currency_tracker.Model.Entities.Favourites
 
 @Dao
 interface FavouritesDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertFavourite(fav: Favourites)
 
     @Delete

@@ -24,6 +24,11 @@ class MyDropDownMenu(view: View){
         setSymbolSpinner(position)
     }
 
+    fun initializeSpinnersWithDefault() {
+        setBaseSpinner(0)
+        setSymbolSpinner(0)
+    }
+
     private fun initializeAdapterForSpinner(): ArrayAdapter<CharSequence> {
         val adapter = ArrayAdapter.createFromResource(
                 context,
@@ -42,4 +47,5 @@ class MyDropDownMenu(view: View){
     private fun setBaseSpinner(position:Int) {
         baseSpinner.setSelection(position)
     }
+
 }

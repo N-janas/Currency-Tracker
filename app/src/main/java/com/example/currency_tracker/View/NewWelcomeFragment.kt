@@ -40,7 +40,8 @@ class NewWelcomeFragment : Fragment() {
         })
 
         view.new_welcome_addButton.setOnClickListener {
-            Toast.makeText(requireContext(),"To nic nie robi",Toast.LENGTH_LONG).show()
+            val action = NewWelcomeFragmentDirections.actionNewWelcomeFragmentToNewConverterFragment("","")
+            findNavController().navigate(action)
         }
 
         return view

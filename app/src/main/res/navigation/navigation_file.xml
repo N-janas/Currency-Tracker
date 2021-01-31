@@ -37,5 +37,14 @@
         <action
             android:id="@+id/action_newWelcomeFragment_to_new_converterFragment"
             app:destination="@id/new_converterFragment" />
+        <action
+            android:id="@+id/action_newWelcomeFragment_to_new_converterFragment2"
+            app:destination="@id/new_converterFragment" />
+        <action
+            android:id="@+id/action_newWelcomeFragment_to_new_converterFragment3"
+            app:destination="@id/new_converterFragment" />
+        <action
+            android:id="@+id/action_newWelcomeFragment_to_new_converterFragment4"
+            app:destination="@id/new_converterFragment" />
     </fragment>
 </navigation>

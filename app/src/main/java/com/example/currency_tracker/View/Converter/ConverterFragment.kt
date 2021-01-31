@@ -49,6 +49,7 @@ class ConverterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.new_converter_symbolEditText.setText("0")
         val resultObserver = Observer<String> { result -> view.new_converter_symbolEditText.setText(result) }
         converterViewModel.conversionResult.observe(viewLifecycleOwner, resultObserver)
 

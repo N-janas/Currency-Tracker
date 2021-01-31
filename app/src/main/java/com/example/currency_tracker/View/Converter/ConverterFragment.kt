@@ -51,13 +51,19 @@ class ConverterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val resultObserver = Observer<String> { result -> view.new_converter_symbolEditText.setText(result) }
         converterViewModel.conversionResult.observe(viewLifecycleOwner, resultObserver)
+
         if(argumentsAreNotNull()){
             myDropDownMenu.initializeSpinnersWithArguments(args)
+            view.new_converter_baseEditText.requestFocus()
         }
-        converterOnClickListeners.initializeAllListeners()
+        else{
+            myDropDownMenu.initializeSpinnersWithDefault()
+            view.new_converter_baseSpinner.requestFocus()
+        }
 
+        converterOnClickListeners.initializeAllListeners()
         favouriteButtonLogic.checkIsOnFavouriteList()
-        view.new_converter_baseEditText.requestFocus()
+
     }
 
 

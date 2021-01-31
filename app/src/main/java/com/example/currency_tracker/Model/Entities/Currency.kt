@@ -14,7 +14,7 @@ import java.util.*
 @Entity(tableName = "currency_table")
 data class Currency(
     @PrimaryKey(autoGenerate = true)
-    val idCurrency: Int,
+    val idCurrency: Int = 0,
     // There are a lot of currencies so instead of creating individual
     // fields, lets put a map string->double
     val rates: Map<String, Double> = mapOf(),

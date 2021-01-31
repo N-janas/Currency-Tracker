@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.currency_tracker.Model.Entities.Favourites
 import com.example.currency_tracker.R
@@ -16,11 +17,14 @@ import com.example.currency_tracker.View.Converter.ConverterHelperClasses.Conver
 import com.example.currency_tracker.View.Converter.ConverterHelperClasses.ConverterOnClickListeners
 import com.example.currency_tracker.View.Converter.ConverterHelperClasses.FavouriteButtonLogic
 import com.example.currency_tracker.View.Converter.ConverterHelperClasses.MyDropDownMenu
+import com.example.currency_tracker.View.PlotFragment
 import com.example.currency_tracker.ViewModel.ConverterViewModel
 import com.example.currency_tracker.ViewModel.FavouritesViewModel
+import kotlinx.android.synthetic.main.new_fragment_converter.*
 import kotlinx.android.synthetic.main.new_fragment_converter.view.*
 
-class ConverterFragment : Fragment() {
+class ConverterFragment : Fragment()
+{
     private val args by navArgs<ConverterFragmentArgs>()
 
     private lateinit var converterViewModel: ConverterViewModel
@@ -33,43 +37,64 @@ class ConverterFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View?
+    {
         val view = inflater.inflate(R.layout.new_fragment_converter, container, false)
-        converterViewModel = ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
-        favouritesViewModel = ViewModelProvider(requireActivity()).get(FavouritesViewModel::class.java)
+        converterViewModel =
+                ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
+        favouritesViewModel =
+                ViewModelProvider(requireActivity()).get(FavouritesViewModel::class.java)
         myDropDownMenu = MyDropDownMenu(view)
-        convertButtonLogic = ConvertButtonLogic(view,converterViewModel)
-        favouriteButtonLogic = FavouriteButtonLogic(view,requireActivity())
-        converterOnClickListeners = ConverterOnClickListeners(view,convertButtonLogic,favouriteButtonLogic)
+        convertButtonLogic = ConvertButtonLogic(view, converterViewModel)
+        favouriteButtonLogic = FavouriteButtonLogic(view, requireActivity())
+        converterOnClickListeners =
+                ConverterOnClickListeners(view, convertButtonLogic, favouriteButtonLogic)
         //Magic starts here
-        val obs = Observer<List<Favourites>> {arg-> Log.d("Fav",arg.joinToString())  }
-        favouritesViewModel.readAllData.observe(viewLifecycleOwner,obs)
+        val obs = Observer<List<Favourites>> { arg -> Log.d("Fav", arg.joinToString()) }
+        favouritesViewModel.readAllData.observe(viewLifecycleOwner, obs)
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
         super.onViewCreated(view, savedInstanceState)
-        view.new_converter_symbolEditText.setText("0")
-        val resultObserver = Observer<String> { result -> view.new_converter_symbolEditText.setText(result) }
+        val resultObserver =
+                Observer<String> { result -> view.new_converter_symbolEditText.setText(result) }
         converterViewModel.conversionResult.observe(viewLifecycleOwner, resultObserver)
-
-        if(argumentsAreNotNull()){
+        if (argumentsAreNotNull())
+        {
             myDropDownMenu.initializeSpinnersWithArguments(args)
-            view.new_converter_baseEditText.requestFocus()
         }
-        else{
-            myDropDownMenu.initializeSpinnersWithDefault()
-            view.new_converter_baseSpinner.requestFocus()
-        }
-
         converterOnClickListeners.initializeAllListeners()
+
         favouriteButtonLogic.checkIsOnFavouriteList()
+        view.new_converter_baseEditText.requestFocus()
+
+        setupClickListeners()
 
     }
 
 
-    private fun argumentsAreNotNull(): Boolean {
-        if (args.base.isEmpty() || args.symbol.isEmpty()) {
+    // nawiguj do fragmentu plot a jako dane podaj 2 waluty base i second
+    private fun setupClickListeners()
+    {
+        // bad practice, binding should be used instead kotlin synthetics
+        new_converter_chartButton.setOnClickListener {
+
+            val base = new_converter_baseSpinner.selectedItem.toString()
+            val second = new_converter_symbolSpinner.selectedItem.toString()
+
+            val action =
+                    ConverterFragmentDirections.actionNewConverterFragmentToPlotFragment(base, second)
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun argumentsAreNotNull(): Boolean
+    {
+        if (args.base.isEmpty() || args.symbol.isEmpty())
+        {
             return false
         }
         return true

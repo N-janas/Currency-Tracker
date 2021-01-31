@@ -1,0 +1,79 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "3863b43c2b7d5009613cc230e40a1ce3",
+    "entities": [
+      {
+        "tableName": "currency_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idCurrency` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rates` TEXT NOT NULL, `base` TEXT NOT NULL, `date` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idCurrency",
+            "columnName": "idCurrency",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rates",
+            "columnName": "rates",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "base",
+            "columnName": "base",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idCurrency"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Favourites",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`currencyBaseId` INTEGER NOT NULL, `currencySymbolId` INTEGER NOT NULL, PRIMARY KEY(`currencyBaseId`, `currencySymbolId`))",
+        "fields": [
+          {
+            "fieldPath": "currencyBaseId",
+            "columnName": "currencyBaseId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currencySymbolId",
+            "columnName": "currencySymbolId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "currencyBaseId",
+            "currencySymbolId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3863b43c2b7d5009613cc230e40a1ce3')"
+    ]
+  }
+}

@@ -9,7 +9,8 @@ import java.util.*
 import com.example.currency_tracker.Model.Entities.Currency
 
 @Dao
-interface CurrencyDao {
+interface CurrencyDao
+{
 
     @Insert
     suspend fun insertCurrency(currency: Currency)
@@ -26,7 +27,11 @@ interface CurrencyDao {
 
     // Get sorted rates for base
     @Query("SELECT * FROM currency_table WHERE base = :base AND date BETWEEN :startAt AND :endAt ORDER BY date")
-    fun getListOfCurrency(base: String, startAt: Date, endAt: Date): List<Currency> // TODO(Tutaj  chyba Live Data !!!)
+    fun getListOfCurrency(
+            base: String,
+            startAt: Date,
+            endAt: Date
+    ): LiveData<List<Currency>> // TODO(Tutaj  chyba Live Data !!!)
 
     // Check if table is empty
     @Query("SELECT * FROM currency_table LIMIT 1")

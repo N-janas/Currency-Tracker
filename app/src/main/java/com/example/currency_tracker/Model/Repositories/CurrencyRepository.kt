@@ -9,13 +9,15 @@ import com.example.currency_tracker.Model.ProjectDatabase
 import retrofit2.awaitResponse
 import java.util.*
 
-class CurrencyRepository(private val currencyDao: CurrencyDao) {
-
-    suspend fun add(currency: Currency){
+class CurrencyRepository(private val currencyDao: CurrencyDao)
+{
+    suspend fun add(currency: Currency)
+    {
         currencyDao.insertCurrency(currency)
     }
 
-    suspend fun selectAll(): List<Currency>{
+    suspend fun selectAll(): List<Currency>
+    {
         return currencyDao.allCurrencies()
     }
 
@@ -23,7 +25,8 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
      * Insert all objects in list as
      * new Currencies.
      */
-    suspend fun addAll(currencies: List<Currency>){
+    suspend fun addAll(currencies: List<Currency>)
+    {
         currencyDao.insertAllCurrencies(currencies)
     }
 
@@ -33,16 +36,16 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
      * @return list of one type of Currency specified by [base], with every other corresponding
      * rate. Data is gathered from specified interval of time.
      */
-    suspend fun getListOfCurrency(base: String, startAt: Date, endAt: Date): List<Currency>{
-        // If startAt and endAt will be strings, then here should be the conversion
-        return currencyDao.getListOfCurrency(base, startAt, endAt)
-    }
+    fun getListOfCurrency(base: String, startAt: Date, endAt: Date): LiveData<List<Currency>> =
+        currencyDao.getListOfCurrency(base, startAt, endAt)
+
 
     /**
      * Function checks is any record is already in table in database.
      * @return true if table is empty, otherwise false.
      */
-    fun tableIsEmpty(): Boolean{
+    fun tableIsEmpty(): Boolean
+    {
         return currencyDao.getOneElement().isEmpty()
     }
 
@@ -50,7 +53,8 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
      * Function created for checking latest record date.
      * @return latest date of record in table in Date object.
      */
-    fun getLatestDate(): Date{
+    fun getLatestDate(): Date
+    {
         return currencyDao.getLatestDate()
     }
 
@@ -59,7 +63,8 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
      * Debug function
      * @return list of all unique dates present in database.
      */
-    suspend fun debugGetDatesInDb(): List<Date>{
+    suspend fun debugGetDatesInDb(): List<Date>
+    {
         return currencyDao.debugGetDatesInDb()
     }
 
@@ -67,7 +72,8 @@ class CurrencyRepository(private val currencyDao: CurrencyDao) {
      * Debug function (created cuz selectAll doesn't fit in Logcat)
      * @return list of all currencies based on date.
      */
-    suspend fun debugGetCurrenciesByDate(date: Date): List<Currency>{
+    suspend fun debugGetCurrenciesByDate(date: Date): List<Currency>
+    {
         return currencyDao.debugGetCurrenciesByDate(date)
     }
 }

@@ -27,8 +27,15 @@
     <fragment
         android:id="@+id/plotFragment"
         android:name="com.example.currency_tracker.View.PlotFragment"
-        android:label="fragment_plot"
-        tools:layout="@layout/fragment_plot" />
+        android:label="@string/statistics"
+        tools:layout="@layout/fragment_plot">
+        <argument
+            android:name="base"
+            app:argType="string" />
+        <argument
+            android:name="second"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/newWelcomeFragment"
         android:name="com.example.currency_tracker.View.NewWelcomeFragment"
